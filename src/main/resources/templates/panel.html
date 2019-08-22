@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>panel</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <form th:action="@{/crearConexion}" th:object="${conexionAs}" method="POST">
+                <span th:if="${conexionAs.id !=null}">
+                    <input type="hidden" th:field="${conexionAs.id}" readonly>
+                </span>
+                <input type="text" placeholder="NombreDeLaConexion" th:field="${conexionAs.conexionName}"/>
+                <input type="text" placeholder="servidor" th:field="${conexionAs.servidor}"/>
+                <input type="text" placeholder="usuario" th:field="${conexionAs.usuario}"/>
+                <input type="text" placeholder="clave" th:field="${conexionAs.clave}"/>
+                <input type="Submit" th:value="${conexionAs.id != null }?'Guardar Usuario':'Crear Usuario'"/>
+            </form>
+
+        </div>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Servidor</th>
+                    <th>Usuario</th>
+                    <th>Clave</th>	
+                    <th>Fecha de Creacion</th>
+                    <th>Actiones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="conexion : ${conexionesAs}">
+                    <td th:text="${conexion.id}"></td>
+                    <td th:text="${conexion.conexionName}"></td>
+                    <td th:text="${conexion.servidor}"></td>
+                    <td th:text="${conexion.usuario}"></td>
+                    <td th:text="${conexion.clave}"></td>
+                    <td th:text="${conexion.fechaCreacion}"></td>
+                    <td><a th:href="@{'/editarConexion/'+ ${conexion.id}}"> Editar </a> |  <a th:href="@{'/eliminarConexion/' + ${conexion.id}}">Eliminar</a></td>
+                </tr>
+
+            </tbody>
+
+
+        </table>
+    </body>
+</html>

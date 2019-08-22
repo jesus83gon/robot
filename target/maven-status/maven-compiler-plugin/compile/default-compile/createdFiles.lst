@@ -1,0 +1,10 @@
+com\rob\conf\robot\controller\UsuarioController.class
+com\rob\conf\robot\Entity\ConexionAs.class
+com\rob\conf\robot\Entity\Usuario.class
+com\rob\conf\robot\dto\LoginDto.class
+com\rob\conf\robot\reposiroty\ConexionAsRepository.class
+com\rob\conf\robot\reposiroty\RolRepository.class
+com\rob\conf\robot\ServletInitializer.class
+com\rob\conf\robot\Entity\Rol.class
+com\rob\conf\robot\reposiroty\UsuarioRepository.class
+com\rob\conf\robot\RobotApplication.class
